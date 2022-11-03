@@ -29,6 +29,12 @@ SRCS_SERVER = ./srcs/server.c
 CLIENT = client
 SRCS_CLIENT = ./srcs/client.c
 
+SERVER_B = server_bonus
+SRCS_SERVER_B = ./srcs_bonus/server_bonus.c
+
+CLIENT_B = client_bonus
+SRCS_CLIENT_B = ./srcs_bonus/client_bonus.c
+
 all: $(SERVER) $(CLIENT)
 
 $(SERVER): $(LIBFT) $(SRCS_SERVER)
@@ -38,6 +44,14 @@ $(SERVER): $(LIBFT) $(SRCS_SERVER)
 $(CLIENT): $(LIBFT) $(SRCS_CLIENT)
 	@$(CC) $(CFLAGS) $(INC) $(LIBFT) -o $(CLIENT) $(SRCS_CLIENT)
 	@echo "\n🖥 $(GREEN) Client is ready$(RESET) ✅\n"
+
+$(SERVER_B): $(LIBFT) $(SRCS_SERVER_B)
+	@$(CC) $(CFLAGS) $(INC) $(LIBFT) -o $(SERVER_B) $(SRCS_SERVER_B)
+	@echo "\n🖥 $(GREEN) Server bonus is ready$(RESET) ✅\n"
+
+$(CLIENT_B): $(LIBFT) $(SRCS_CLIENT_B)
+	@$(CC) $(CFLAGS) $(INC) $(LIBFT) -o $(CLIENT_B) $(SRCS_CLIENT_B)
+	@echo "\n🖥 $(GREEN) Client bonus is ready$(RESET) ✅\n"
 
 $(LIBFT):
 	@make -C libft --silent
@@ -49,9 +63,11 @@ clean:
 
 fclean: clean
 	@make -C libft fclean --silent
-	@$(RM) $(CLIENT) $(SERVER)
+	@$(RM) $(CLIENT) $(SERVER) $(CLIENT_B) $(SERVER_B)
 	@echo "\n🚮 $(RED) Executable files removed $(RESET) 🧹\n"
+
+bonus: $(SERVER_B) $(CLIENT_B)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
