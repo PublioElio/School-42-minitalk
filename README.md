@@ -24,7 +24,7 @@ In this project it is necessary to create a `client` and a `server`. The `client
 ## Index
 - [Signals](#signals)
 	- [User signals](#user-signals)
-	- [signal function](#signal-function)
+	- [The signal function](#the-signal-function)
 	- [kill]
 	- [usleep]
 	- [pause]
@@ -35,7 +35,10 @@ In this project it is necessary to create a `client` and a `server`. The `client
 
 ### Signals
 #### User signals
-#### `signal` function
+The user signals `SIGUSR1` and `SIGUSR2` are used in this project. These signals are reserved for programmers and are not used by the operating system. In the project we have chosen the signal `SIGUSR1` as the sending a `0` and `SIGUSR2`, as sending a bit (`1`).
+#### The `signal` function
+La función signal se encuentra en el cliente
+signal(SIGUSR1, signal_handler);
 usleep()
 kill(pid, SIGUSR1)
 pause()
@@ -50,8 +53,6 @@ sigaction()
 ### Bonus
 
 Al arrancar el `server`, lo primero que obtenemos es el PID (_process id_). El PID ha de introducirse en el `client`, en otra ventana del terminal, seguido de una cadena de caracteres válida (sin espacios en blanco o entrecomillada, si se incluyen espacios en blanco). Al ejecutar el cliente con estos parámetros, la cadena de caracteres enviada aparecerá en el terminal donde se haya ejecutado el `server`.  
-
-En este proyecto se han utilizado las señales `SIGUSR1` y `SIGUSR2`. Estas señales están reservadas para su uso por parte de programadores y no son utilizadas por el sistema operativo. En el proyecto se ha optado por interpretar que la señal `SIGUSR1`es el envío de un `0` y `SIGUSR2`, el envío de un bit (`1`).
 
 El uso de una variable global por ejecutable está permitido en el proyecto, y esta se ha definido como `g_mutex` en `client.c`. Esta variable se ha empleado como una forma alternativa de sincronizar `client' con `server`.
 
