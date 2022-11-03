@@ -35,7 +35,7 @@ In this project it is necessary to create a `client` and a `server`. The `client
 
 ### Signals
 #### User signals
-signal()
+#### `signal` function
 usleep()
 kill(pid, SIGUSR1)
 pause()
