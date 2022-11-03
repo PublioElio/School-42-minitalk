@@ -23,11 +23,18 @@ In this project it is necessary to create a `client` and a `server`. The `client
 
 ## Index
 - [Signals](#signals)
+	- [User signals](#user-signals)
+	- [signal function](#signal-function)
+	- [kill]
+	- [usleep]
+	- [pause]
+	- [sigaction]	
 - [Client](#client)
 - [Server](#server)
 - [File structure](#file-structure)
 
 ### Signals
+#### User signals
 signal()
 usleep()
 kill(pid, SIGUSR1)
@@ -54,7 +61,7 @@ To imput a hig quantity of character, use a site like [this one.](https://www.ch
 To imput ramdomly generated unicode characters, use a site [like this.](https://perchance.org/emoji)
 
 ## Requirements
-The is written in __C language__ and needs the `gcc` compiler, with `<stdlib.h>` and `<unistd.h>` standard libraries to run.
+The is written in __C language__ and needs the `gcc` compiler, with `<stdlib.h>`, `<unistd.h>` and `<signal.h>` standard libraries to run.
 
 ## Instructions
 
