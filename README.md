@@ -22,18 +22,25 @@ This repository contains all files for the __minitalk__ project from School 42 M
 In this project it is necessary to create a `client` and a `server`. The `client` will send a string of characters to the `server`, using only UNIX signals. The `server` will then print the received string to another terminal. Additionally, as part of the **bonus** of the task, the `server` will confirm the reception of data to the `client`.
 
 ## Index
-- [User signals](#user-signals)
+- [Signals](#signals)
 - [Client](#client)
 - [Server](#server)
 - [File structure](#file-structure)
 
-### User signals
+### Signals
+signal()
+usleep()
+kill(pid, SIGUSR1)
+pause()
+sigaction()
 
 ### Client
 
 ### Server
 
 ### File structure
+
+### Bonus
 
 Al arrancar el `server`, lo primero que obtenemos es el PID (_process id_). El PID ha de introducirse en el `client`, en otra ventana del terminal, seguido de una cadena de caracteres válida (sin espacios en blanco o entrecomillada, si se incluyen espacios en blanco). Al ejecutar el cliente con estos parámetros, la cadena de caracteres enviada aparecerá en el terminal donde se haya ejecutado el `server`.  
 
