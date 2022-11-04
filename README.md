@@ -35,10 +35,14 @@ In this project it is necessary to create a `client` and a `server`. The `client
 
 ### Signals
 #### User signals
-The user signals `SIGUSR1` and `SIGUSR2` are used in this project. These signals are reserved for programmers and are not used by the operating system. In the project we have chosen the signal `SIGUSR1` as the sending a `0` and `SIGUSR2`, as sending a bit (`1`).
+User signals `SIGUSR1` and `SIGUSR2` are used in this project. These signals are reserved for programmers and never are used by the operating system. In the project we have chosen the signal `SIGUSR1` as the sending a `0` and `SIGUSR2`, as sending a bit (`1`).
 #### The `signal` function
-La función signal se encuentra en el cliente
-signal(SIGUSR1, signal_handler);
+The signal function is located in the `client`. `signal` sets a function to handle signal (`SIGUSR1` and `SIGUSR2`), the prototype is: `void (*signal(int sig, void (*func)(int)))(int)`, and in the project is declared this way:
+
+```
+signal(SIGUSR1, signal_handler)
+```
+
 usleep()
 kill(pid, SIGUSR1)
 pause()
